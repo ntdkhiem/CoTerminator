@@ -1,0 +1,11 @@
+body {
+  background-color: #ad3723;
+  background-image: linear-gradient(#ad3723, peru);
+  background-size: contain;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+.track {
+  width: 1420px;
+  heigth:1000px;
+}

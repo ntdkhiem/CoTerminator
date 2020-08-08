@@ -1,0 +1,22 @@
+
+  
+
+body {
+background-color: burlywood;
+
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+button {
+  background-color: red;
+  padding: 15px;
+  border-radius: 70px;
+  width: 300px;
+
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-weight: 500;
+  letter-spacing: 4px;
+  border: 0ch;
+  font-size: 35px;
+
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>repl.it</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <div class="sidenav">
+    <a class="navbar-brand">CoTerminator</a>
+    <nav>
+      <ul>
+
+        <li><a href="{{ url_for('.diagnosis') }}">Talk to our Diagnosis Machine</li>
+        <li><a href="{{ url_for('.tracker') }}">Coronavirus Updates/Tracker</li>
+        <li><a href="{{ url_for('.faq') }}">Covid FAQ</li>
+      </ul>
+    </nav>
+  </div>
+</head>
+
+<body>
+  <div class="overview">
+
+    <h1>
+      <center>Welcome to CoTerminator, a website that contains everything you need to know about this terrible pandemic.
+      </center>
+    </h1>
+
+    <h2>
+      <center>This website includes many different features: We have a diagnosis machine that will tell you how likely
+        you are to have contracted Covid-19 based on a series of questions. Next, we include a Covid FAQ section, taken
+        from the CDC. We have coronavirus updates that will tell you about the latest infographics around the world, and
+        we have also provided you with testing centers near your home.</center>
+    </h2>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
