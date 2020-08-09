@@ -1,5 +1,19 @@
+body {
+  background-color: #ad3723;
+  background-image: linear-gradient(#ad3723, peru);
+  background-size: contain;
+  color: white;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+.track {
+  width: 1420px;
+  height:1000px;
+}
+
 #tracker-map {
   height: 700px;
+  width: 80%
 }
 .circle:hover{
   stroke: black;
