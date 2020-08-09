@@ -1,0 +1,16 @@
+# This is a compose file for development
+version: '3.8'
+
+services:
+    web:
+        command: python app.py
+        env_file:
+            - ./.env.dev
+        volumes:
+            - ./services/web:/usr/src/app
+    api:
+        command: python app.py
+        env_file:
+            - ./.env.dev
+        volumes:
+            - ./services/api:/usr/src/app
