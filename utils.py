@@ -1,12 +1,12 @@
 import requests
+from flask import current_app
 
 class CoTerminatorError(Exception):
     pass
 
 def getState(lat, lng):
     url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng={},{}&key={}'
-    key = 'AIzaSyC6SFSW3clHfOtOiznYkxW03Wmadlx-JZU'
-    url = url.format(lat, lng, key)
+    url = url.format(lat, lng, current_app.config.get('GOOGLE_MAPS_KEY'))
 
     data = requests.get(url).json()
     if data:
