@@ -1,9 +1,11 @@
 import requests
 from flask import Flask, render_template, request, jsonify
 
+from config import Config
 from utils import getState
 
 app = Flask(__name__)
+app.config.from_object(Config)
 
 
 @app.route('/')
