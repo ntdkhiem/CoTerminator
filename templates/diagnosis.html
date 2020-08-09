@@ -1,227 +1,84 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>repl.it</title>
-    <link
-      href="{{ url_for('static', filename='css/diagnosis.css') }}"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
-  <body>
-    <h1><center>DIAGNOSIS MACHINE</center></h1>
+<html lang="en">
 
-    <form>
-      <label for="chills">Have you experienced any chills lately?</label><br />
-      <input type="radio" name="choice" value="yes" /> Yes<br />
-      <input type="radio" name="choice" value="no" /> No<br /><br />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnosis.css') }}">
+</head>
+
+<body>
+    <form id="diagnosis">
+        <fieldset id="chills">
+            <label for="chills">Have you experienced any chills lately?</label>
+            <br>
+            <input type="radio" name="chills" value="yes" /> Yes
+            <input type="radio" name="chills" value="no" /> No
+        </fieldset>
+        <fieldset id="fever">
+            <label for="fever">Have you had a fever in the past week?</label>
+            <br>
+            <input type="radio" name="fever" value="yes" /> Yes
+            <input type="radio" name="fever" value="no" /> No
+        </fieldset>
+        <fieldset id="coughing">
+            <label for="coughing">Have you been dry coughing this week?</label>
+            <br>
+            <input type="radio" name="coughing" value="yes" /> Yes
+            <input type="radio" name="coughing" value="no" /> No
+        </fieldset>
+        <fieldset id="breath">
+            <label for="breath">Have you been experiencing shortness of breath?</label>
+            <br>
+            <input type="radio" name="breath" value="yes" /> Yes
+            <input type="radio" name="breath" value="no" /> No
+        </fieldset>
+        <fieldset id="fatigue">
+            <label for="fatigue">Have you been experiencing fatigue?</label>
+            <br>
+            <input type="radio" name="fatigue" value="yes" /> Yes
+            <input type="radio" name="fatigue" value="no" /> No
+        </fieldset>
+        <fieldset id="aches">
+            <label for="aches">Have you had muscle or body aches this week?</label>
+            <br>
+            <input type="radio" name="aches" value="yes" /> Yes
+            <input type="radio" name="aches" value="no" /> No
+        </fieldset>
+        <fieldset id="headaches">
+            <label for="headaches">Have you had muscle or body aches this week?</label>
+            <br>
+            <input type="radio" name="headaches" value="yes" /> Yes
+            <input type="radio" name="headaches" value="no" /> No
+        </fieldset>
+        <fieldset id="throat">
+            <label for="throat">How often have you had headaches this week?</label>
+            <br>
+            <input type="radio" name="throat" value="yes" /> Yes
+            <input type="radio" name="throat" value="no" /> No
+        </fieldset>
+        <fieldset id="nausea">
+            <label for="nausea">Are you experiencing nausea?</label>
+            <br>
+            <input type="radio" name="nausea" value="yes" /> Yes
+            <input type="radio" name="nausea" value="no" /> No
+        </fieldset>
+        <input type="submit" value="Diagnose"/>
     </form>
 
-    <form>
-      <label for="fever">Have you had a fever in the past week?</label><br />
-      <input type="radio" name="choice2" value="yes" /> Yes <br />
-      <input type="radio" name="choice2" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
+    <h3>Your Diagnosis</h3>
+    <textarea name="" id="results" cols="40" rows="5"></textarea>
 
-    <form>
-      <label for="coughing">Have you been dry coughing this week?</label><br />
-      <input type="radio" name="choice3" value="yes" /> Yes <br />
-      <input type="radio" name="choice3" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
+    <br>
+    <br>
 
-    <form>
-      <label for="coughing"
-        >Have you been experiencing shortness of breath?</label
-      ><br />
-      <input type="radio" name="choice4" value="yes" /> Yes <br />
-      <input type="radio" name="choice4" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
+    <a href="{{ url_for('.calculation') }}">Visit Here to Learn About How We Calculated Your Diagnosis</a>
+    <br>
+    <br>
+    <a href="{{ url_for('.index') }}">Head back to our home page</a>
 
-    <form>
-      <label for="fatigue">Have you been experiencing fatigue?</label><br />
-      <input type="radio" name="choice5" value="yes" /> Yes <br />
-      <input type="radio" name="choice5" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
-    <form>
-      <label for="aches">Have you had muscle or body aches this week?</label
-      ><br />
-      <input type="radio" name="choice6" value="yes" /> Yes <br />
-      <input type="radio" name="choice6" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
+    <script src="{{ url_for('static', filename='js/diagnosis.js') }}"></script>
+</body>
 
-    <form>
-      <label for="headaches">How often have you had headaches this week?</label
-      ><br />
-      <input type="radio" name="choice7" value="yes" /> Yes <br />
-      <input type="radio" name="choice7" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
-
-    <form>
-      <label for="throat">Have you had a sore throat?</label><br />
-      <input type="radio" name="choice8" value="yes" /> Yes <br />
-      <input type="radio" name="choice8" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
-
-    <form>
-      <label for="nausea">Are you experiencing nausea?</label><br />
-      <input type="radio" name="choice9" value="yes" /> Yes <br />
-      <input type="radio" name="choice9" value="no" /> No <br /><br />
-    </form>
-    <br /><br />
-
-    <button onclick="diagnose()">Diagnose</button><br /><br /><br />
-
-    <label for="diagnosis">Your diagnosis</label><br />
-
-    <textarea id="results" readonly="readonly" cols="40" rows="5"></textarea
-    ><br /><br />
-
-    <a href="{{ url_for('.calculation') }}"
-      >Visit Here to Learn About How We Calculated Your Diagnosis</a
-    ><br />
-    <br /><a href="{{ url_for('.index') }}">Head back to our home page</a>
-
-    <script>
-      function diagnose() {
-        var score = 0;
-
-        const rbs = document.querySelectorAll('input[name="choice"]');
-        let selectedValue;
-        for (const rb of rbs) {
-          if (rb.checked) {
-            selectedValue = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue == "yes") {
-          score += 5;
-        }
-
-        const rbs2 = document.querySelectorAll('input[name="choice2"]');
-        let selectedValue2;
-        for (const rb of rbs2) {
-          if (rb.checked) {
-            selectedValue2 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue2 == "yes") {
-          score += 5;
-        }
-
-        const rbs3 = document.querySelectorAll('input[name="choice3"]');
-        let selectedValue3;
-        for (const rb of rbs3) {
-          if (rb.checked) {
-            selectedValue3 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue3 == "yes") {
-          score += 5;
-        }
-        const rbs4 = document.querySelectorAll('input[name="choice4"]');
-        let selectedValue4;
-        for (const rb of rbs4) {
-          if (rb.checked) {
-            selectedValue4 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue4 == "yes") {
-          score += 5;
-        }
-
-        const rbs5 = document.querySelectorAll('input[name="choice5"]');
-        let selectedValue5;
-        for (const rb of rbs5) {
-          if (rb.checked) {
-            selectedValue5 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue5 == "yes") {
-          score += 5;
-        }
-        const rbs6 = document.querySelectorAll('input[name="choice6"]');
-        let selectedValue6;
-        for (const rb of rbs6) {
-          if (rb.checked) {
-            selectedValue6 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue6 == "yes") {
-          score += 5;
-        }
-        const rbs7 = document.querySelectorAll('input[name="choice7"]');
-        let selectedValue7;
-        for (const rb of rbs7) {
-          if (rb.checked) {
-            selectedValue7 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue7 == "yes") {
-          score += 5;
-        }
-
-        const rbs8 = document.querySelectorAll('input[name="choice8"]');
-        let selectedValue8;
-        for (const rb of rbs8) {
-          if (rb.checked) {
-            selectedValue8 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue8 == "yes") {
-          score += 5;
-        }
-
-        const rbs9 = document.querySelectorAll('input[name="choice9"]');
-        let selectedValue9;
-        for (const rb of rbs9) {
-          if (rb.checked) {
-            selectedValue9 = rb.value;
-            break;
-          }
-        }
-
-        if (selectedValue9 == "yes") {
-          score += 5;
-        }
-
-        var message;
-        if (score >= 30) {
-          message =
-            "Our Short Assessment Module system predicts that you have been contracted with COVID-19";
-        } else if (score >= 20) {
-          message =
-            "Our system predics that you may have coronavirus, and you should get it checked out. Visit our testing center links based on your location";
-        } else {
-          message =
-            "Our system does not think you have covid, but please feel free to access our testing site database and information";
-        }
-
-        document.getElementById("results").innerHTML = message;
-      }
-    </script>
-  </body>
 </html>
