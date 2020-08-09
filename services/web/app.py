@@ -28,5 +28,10 @@ def calculation():
     return render_template('calculation.html') 
 
 
+@app.route('/fakenews')
+def fnews():
+    return render_template('fakenews.html') 
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
