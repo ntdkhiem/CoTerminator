@@ -1,3 +1,5 @@
 steps:
 - name: 'docker/compose:1.26.2'
-  args: ['up', '-f', 'docker-compose.yaml', '-f', 'docker-compose.prod.yaml', '-d']
+  args: ['-f', 'docker-compose.yaml', '-f', 'docker-compose.prod.yaml', 'up', '-d', '--build']
+  env:
+  - 'GOOGLE_APIS_KEY=$_GOOGLE_APIS_KEY'
