@@ -2,7 +2,7 @@ async function initializeMap(userPos) {
     // tracker-map is the id of the div where the map will appear
     var map = L
       .map('tracker-map')
-      .setView([userPos.coords.latitude, userPos.coords.longitude], 15);   // center position + zoom
+      .setView([userPos.coords.latitude, userPos.coords.longitude], 10);   // center position + zoom
     
     // Add a tile to the map = a background. Comes from OpenStreetmap
     L.tileLayer(
@@ -10,6 +10,11 @@ async function initializeMap(userPos) {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
         maxZoom: 19,
         }).addTo(map);
+
+    // Add a marker for user's location
+    L.marker([userPos.coords.latitude, userPos.coords.longitude]).addTo(map)
+      .bindPopup('You are here.')
+      .openPopup();
     
     // Add a svg layer to the map
     L.svg().addTo(map);
@@ -35,7 +40,7 @@ async function initializeMap(userPos) {
     var size = d3.scaleLinear()
       // .domain([least_cases, most_cases])  // What's in the data
       .domain([least_cases, most_cases])  // What's in the data
-      .range([0, 300]) // size in pixel
+      .range([0, 100]) // size in pixel
 
     // create a tooltip
     var Tooltip = d3.select("#tracker-map")
@@ -108,6 +113,7 @@ async function getData(lat, lng) {
     return data
 }
 
+// ask for user's location before start 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(initializeMap)
 }
