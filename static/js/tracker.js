@@ -2,7 +2,7 @@ async function initializeMap(userPos) {
     // tracker-map is the id of the div where the map will appear
     var map = L
       .map('tracker-map')
-      .setView([userPos.coords.latitude, userPos.coords.longitude], 10);   // center position + zoom
+      .setView([userPos.coords.latitude, userPos.coords.longitude], 15);   // center position + zoom
     
     // Add a tile to the map = a background. Comes from OpenStreetmap
     L.tileLayer(
@@ -15,6 +15,27 @@ async function initializeMap(userPos) {
     L.svg().addTo(map);
 
     markers = await getData(userPos.coords.latitude, userPos.coords.longitude)
+
+    // get highest and lowest cases for scaling purposes
+    most_cases = -1
+    least_cases = 0 
+
+    markers.forEach(marker => {
+      if (Math.max(most_cases, marker.confirmed) == marker.confirmed) {
+        most_cases = marker.confirmed
+      }
+      else if (Math.min(least_cases, marker.confirmed) == marker.confirmed) {
+        least_cases = marker.confirmed
+      }
+    })
+
+    maxLength = Math.floor(Math.log10(most_cases))  // get total digits of the highest number of cases by county
+
+    // Add a scale for bubble size
+    var size = d3.scaleLinear()
+      // .domain([least_cases, most_cases])  // What's in the data
+      .domain([least_cases, most_cases])  // What's in the data
+      .range([0, 300]) // size in pixel
 
     // create a tooltip
     var Tooltip = d3.select("#tracker-map")
@@ -35,7 +56,7 @@ async function initializeMap(userPos) {
     var mousemove = function(d) {
         console.log('MouseMove')
       Tooltip
-        .html(d.name + "<br>" + "long: " + d.long + "<br>" + "lat: " + d.lat)
+        .html(d.confirmed + "<br>" + "new cases: " + d.new + "<br>" + "last updated: " + d.last_update)
         .style("left", (d3.mouse(this)[0]+10) + "px")
         .style("top", (d3.mouse(this)[1]) + "px")
     }
@@ -53,7 +74,7 @@ async function initializeMap(userPos) {
         .append("circle")
             .attr("cx", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).x })
             .attr("cy", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).y })
-            .attr("r", 14)
+            .attr("r", function(d){ return size(d.confirmed) })
             .style("fill", "red")
             .attr("stroke", "red")
             .attr("stroke-width", 3)
