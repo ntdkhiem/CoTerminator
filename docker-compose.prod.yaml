@@ -1,0 +1,13 @@
+
+# This is a compose file for production
+version: '3.8'
+
+services:
+    web:
+        command: python app.py
+        env_file:
+            - ./.env.prod
+    api:
+        command: python app.py
+        env_file:
+            - ./.env.prod
