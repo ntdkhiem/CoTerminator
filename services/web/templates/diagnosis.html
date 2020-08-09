@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnosis.css') }}">
+</head>
+
+<body>
+    <form id="diagnosis">
+        <fieldset id="chills">
+            <label for="chills">Have you experienced any chills lately?</label>
+            <br>
+            <input type="radio" name="chills" value="yes" /> Yes
+            <input type="radio" name="chills" value="no" /> No
+        </fieldset>
+        <fieldset id="fever">
+            <label for="fever">Have you had a fever in the past week?</label>
+            <br>
+            <input type="radio" name="fever" value="yes" /> Yes
+            <input type="radio" name="fever" value="no" /> No
+        </fieldset>
+        <fieldset id="coughing">
+            <label for="coughing">Have you been dry coughing this week?</label>
+            <br>
+            <input type="radio" name="coughing" value="yes" /> Yes
+            <input type="radio" name="coughing" value="no" /> No
+        </fieldset>
+        <fieldset id="breath">
+            <label for="breath">Have you been experiencing shortness of breath?</label>
+            <br>
+            <input type="radio" name="breath" value="yes" /> Yes
+            <input type="radio" name="breath" value="no" /> No
+        </fieldset>
+        <fieldset id="fatigue">
+            <label for="fatigue">Have you been experiencing fatigue?</label>
+            <br>
+            <input type="radio" name="fatigue" value="yes" /> Yes
+            <input type="radio" name="fatigue" value="no" /> No
+        </fieldset>
+        <fieldset id="aches">
+            <label for="aches">Have you had muscle or body aches this week?</label>
+            <br>
+            <input type="radio" name="aches" value="yes" /> Yes
+            <input type="radio" name="aches" value="no" /> No
+        </fieldset>
+        <fieldset id="headaches">
+            <label for="headaches">Have you had muscle or body aches this week?</label>
+            <br>
+            <input type="radio" name="headaches" value="yes" /> Yes
+            <input type="radio" name="headaches" value="no" /> No
+        </fieldset>
+        <fieldset id="throat">
+            <label for="throat">How often have you had headaches this week?</label>
+            <br>
+            <input type="radio" name="throat" value="yes" /> Yes
+            <input type="radio" name="throat" value="no" /> No
+        </fieldset>
+        <fieldset id="nausea">
+            <label for="nausea">Are you experiencing nausea?</label>
+            <br>
+            <input type="radio" name="nausea" value="yes" /> Yes
+            <input type="radio" name="nausea" value="no" /> No
+        </fieldset>
+        <input type="submit" value="Diagnose"/>
+    </form>
+
+    <h3>Your Diagnosis</h3>
+    <textarea name="" id="results" cols="40" rows="5"></textarea>
+
+    <br>
+    <br>
+
+    <a href="{{ url_for('.calculation') }}">Visit Here to Learn About How We Calculated Your Diagnosis</a>
+    <br>
+    <br>
+    <a href="{{ url_for('.index') }}">Head back to our home page</a>
+
+    <script src="{{ url_for('static', filename='js/diagnosis.js') }}"></script>
+</body>
+
+</html>

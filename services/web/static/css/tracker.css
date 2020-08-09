@@ -1,0 +1,7 @@
+#tracker-map {
+  height: 700px;
+}
+.circle:hover{
+  stroke: black;
+  stroke-width: 4px;
+}

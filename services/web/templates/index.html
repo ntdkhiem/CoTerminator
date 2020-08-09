@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CoTerminator</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  <div class="sidenav">
+    <a class="navbar-brand">CoTerminator</a>
+    <nav>
+      <ul>
+
+        <li><a href="{{ url_for('.diagnosis') }}">Talk to our Diagnosis Machine</li>
+        <li><a href="{{ url_for('.tracker') }}">Coronavirus Updates/Tracker</li>
+        <li><a href="{{ url_for('.faq') }}">Covid FAQ</li>
+      </ul>
+    </nav>
+  </div>
+</head>
+
+<body>
+  <div class="overview">
+
+
+    <h1>
+      <center>Welcome to CoTerminator, a website that contains everything you need to know about this terrible pandemic.
+      </center>
+    </h1>
+
+    <h2>
+      <center>This website includes many different features: We have a diagnosis machine that will tell you how likely
+        you are to have contracted Covid-19 based on a series of questions. Next, we include a Covid FAQ section, taken
+        from the CDC. We have coronavirus updates that will tell you about the latest infographics around the world, and
+        we have also provided you with testing centers near your home.</center>
+    </h2>
+
+    <img
+      src="https://images.unsplash.com/photo-1586085030200-6d20de872ecd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80"><br>
+    <br><img
+      src="https://images.unsplash.com/photo-1590122696319-152756c73526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"><br>
+    <br><img
+      src="https://images.unsplash.com/photo-1587314199858-905a5e5b618f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
