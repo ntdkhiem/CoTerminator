@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>CoTerminator</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/icon.png') }}">
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
@@ -18,6 +19,7 @@
           <li><a href="{{ url_for('.diagnosis') }}">Talk to our Diagnosis Machine</a></li>
           <li><a href="{{ url_for('.tracker') }}">Coronavirus Updates/Tracker</a></li>
           <li><a href="{{ url_for('.faq') }}">Covid FAQ</a></li>
+          <li><a href="{{ url_for('.fnews') }}">COVID Fake New</a></li>
         </ul>
       </nav>
     </div>
