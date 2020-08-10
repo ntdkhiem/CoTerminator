@@ -10,7 +10,9 @@ A website that increases awareness about this 2020 pandemic and helps users stay
 
 ### How to run
 1. Create .env.prod file
-  a. Add `GOOGLE_APIS_KEY={YOUR_GOOGLE_API_KEY}`
-2. Run `docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d`
+2. Add `GOOGLE_APIS_KEY={YOUR_GOOGLE_API_KEY}`
+3. Run `docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d`
 
 NOTE: Make sure docker is running.
+
+THAT'S IT!!
